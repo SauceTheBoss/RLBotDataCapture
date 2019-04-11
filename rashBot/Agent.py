@@ -23,7 +23,10 @@ class RashBot(BaseAgent):
         c_packet = copy.deepcopy(packet)
         newState = {
             'state': c_packet,
-            'action': action
+            'action': action,
+            'name': self.name,
+            'index': self.index,
+            'team': self.team
             }
         self.memory.append(newState)
 

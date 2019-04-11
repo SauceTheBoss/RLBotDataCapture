@@ -4,6 +4,12 @@ import numpy as np
 from os import listdir
 from os.path import isfile, join
 import os
+from rlbot.messages.flat.Physics import Physics
+
+# def FieldPosition(p: Physics, team: int):
+#     l = p.Location
+
+#     return 0,0,0
 
 np.set_printoptions(linewidth=400)
 #frame_file = 'capture\\BallRollingToGoalie.pt'
@@ -26,8 +32,8 @@ for i in range(len(files)):
                 for z in range(sz):
                     i = sz - z - 1
                     action = memory[i]['action']
-                    state = memory[i]['state']
-                    car = state.game_cars[0]
+                    state = memory[i]['state']                    
+
                     seq[i][0] = action.throttle
                     seq[i][1] = action.steer
                     seq[i][2] = action.roll
@@ -36,6 +42,9 @@ for i in range(len(files)):
                     seq[i][5] = action.boost
                     seq[i][6] = action.handbrake
                     seq[i][7] = action.jump
+
+                    c_inx = memory[i]['index']
+                    car = state.game_cars[c_inx]
                     seq[i][8] = not car.has_wheel_contact
                 collection.append(seq)
     print(file,count)
