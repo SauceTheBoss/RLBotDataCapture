@@ -23,7 +23,7 @@ def make_match_config_with_my_bot(name) -> MatchConfig:
     match_config = make_empty_match_config()
     match_config.player_configs = [
         PlayerConfig.bot_config(
-            Path(__file__).absolute().parent.parent / 'stick' / 'stick.cfg',
+            Path(__file__).absolute().parent.parent / 'rashBot' / 'rashBot.cfg', #            Path(__file__).absolute().parent.parent / 'stick' / 'stick.cfg',
             Team.BLUE
         )
     ]
